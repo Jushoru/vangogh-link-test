@@ -1,0 +1,663 @@
+:root {
+    --accent-color: #EE753E;
+    --dark-color: #272A33;
+    --gray1-color: #D5DFE9;
+    --gray2-color: #E0E6ED;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+    margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    padding: 0;
+    border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+    list-style: none;
+}
+
+:where(address[class]) {
+    font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+    --paragraphMarginBottom: 24px;
+
+    margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    height: 100%;
+    /**
+      Убираем скачок интерфейса по горизонтали
+      при появлении / исчезновении скроллбара
+     */
+    scrollbar-gutter: stable;
+    /**
+      Плавный скролл
+     */
+    scroll-behavior: smooth;
+}
+
+body {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    min-height: 100%;
+    /**
+      Унифицированный интерлиньяж
+     */
+    line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+    display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+    cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+    fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not(
+  [stroke="none"],
+  [stroke^="url"]
+)) {
+    stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+    transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+    border-collapse: collapse;
+    border-color: currentColor;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1440px;
+    margin: 0 140px;
+}
+@media (max-width: 1440px) {
+    .header__inner {
+        width: 768px;
+        margin: 0 96px;
+    }
+}
+@media (max-width: 768px) {
+    .header__inner {
+        width: 576px;
+        margin: 0 40px;
+    }
+}
+@media (max-width: 576px) {
+    .header__inner {
+        width:360px;
+        margin: 0 15px;
+    }
+}
+
+
+.header__logo {
+    width: 210px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.logo__img {
+    width: 180px;
+}
+
+.header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 1px solid var(--dark-color);
+    border-radius: 8px;
+    padding: 16px 0;
+    cursor: pointer;
+    z-index: 1000;
+}
+@media (max-width: 1440px) {
+    .header__burger {
+        display: flex;
+    }
+}
+
+.header__burger-line {
+    display: block;
+    width: 23px;
+    height: 2px;
+    background-color: var(--dark-color);
+    border-radius: 100px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header__burger--active .header__burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header__burger--active .header__burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.header__burger--active .header__burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 1440px) {
+    .header__menu {
+        position: fixed;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        width: calc(100% - 280px);
+        top: 80px;
+        background-color: white;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+    }
+    .header__menu--active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+.header__menu-list {
+    display: flex;
+    gap: 80px;
+}
+@media (max-width: 1440px) {
+    .header__menu-list {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.header__menu-item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+@media (max-width: 1440px) {
+    .header__menu-item {
+        height: auto;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--gray1-color);
+    }
+}
+
+.header__menu-link {
+    font-family: OpenSans, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark-color);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.header__menu-link:hover {
+    color: var(--accent-color);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.main__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 1440px;
+    margin-left: 140px;
+    margin-right: 140px;
+    padding-top: 80px;
+    margin-bottom: 50px;
+}
+@media (max-width: 1440px) {
+    .main__inner {
+        gap: 50px;
+        width: 768px;
+        margin-left: 96px;
+        margin-right: 96px;
+    }
+}
+@media (max-width: 768px) {
+    .main__inner {
+        width: 576px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-top: 50px;
+    }
+}
+@media (max-width: 576px) {
+    .main__inner {
+        margin-left: 15px;
+        margin-right: 15px;
+        width: 360px;
+    }
+}
+
+.recommendation {
+    width: 100%;
+}
+
+h1 {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    color: var(--dark-color);
+    text-transform: uppercase;
+    margin: 0;
+}
+@media (max-width: 1440px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+}
+
+.recommendation__equipment {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 1440px) {
+    .recommendation__equipment {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 576px) {
+    .recommendation__equipment {
+        margin-top: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+.recommendation__item {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--gray2-color);
+}
+@media (max-width: 576px) {
+    .recommendation__item {
+        flex-direction: column;
+    }
+}
+
+.recommendation__img {
+    width: 220px;
+    margin: -1px;
+}
+@media (max-width: 576px) {
+    .recommendation__img {
+        min-width: 170px;
+    }
+}
+
+.recommendation__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    padding: 31px 30px 31px 30px;
+}
+
+@media (max-width: 576px) {
+    .recommendation__content {
+        padding: 10px;
+    }
+}
+
+h3 {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--dark-color);
+}
+@media (max-width: 576px) {
+    h3 {
+        font-size: 16px;
+    }
+}
+
+.recommendation__item-title {
+    max-width: 485px;
+    flex-grow: 1;
+}
+
+.recommendation__availability {
+    display: flex;
+    gap: 10px;
+}
+
+.recommendation__availability-img {
+    width: 14px;
+}
+
+.recommendation__availability-description {
+    font-family: OpenSans, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark-color);
+}
+@media (max-width: 576px) {
+    .recommendation__availability-description {
+        font-size: 14px;
+    }
+}
+
+.recommendation__item-button {
+    width: min-content;
+}
+
+.button {
+    background-color: var(--dark-color);
+    font-family: OpenSans, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    padding: 8px 30px 12px 30px;
+    border-radius: 8px;
+    border: none;
+}
+@media (max-width: 576px) {
+    .button {
+        font-size: 16px;
+    }
+}
+.button:hover {
+    background-color: var(--accent-color);
+}
+
+.recommendation {
+    width: 100%;
+}
+
+.recommendation__button {
+    margin: 30px auto 0 auto;
+    display: block;
+}
+@media (max-width: 1440px) {
+    .recommendation__button {
+        margin-top: 20px;
+    }
+}
+
+.about {
+    width: 100%;
+}
+
+.about__inner {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+}
+@media (max-width: 1440px) {
+    .about__inner {
+        flex-direction: column;
+    }
+}
+@media (max-width: 576px) {
+    .about__inner {
+        margin-top: 20px;
+        gap: 20px;
+    }
+}
+
+.about__img-grid {
+    flex: 1;
+    display: grid;
+    gap: 30px 33px;
+    grid-template-areas: "a a" "b c " "b c";
+}
+.about__img-grid img:nth-child(1) {
+     grid-area: a;
+ }
+
+.about__img-grid img:nth-child(2) {
+    grid-area: b;
+}
+
+.about__img-grid img:nth-child(3) {
+    grid-area: c;
+}
+@media (max-width: 768px) {
+    .about__img-grid {
+        gap: 24px 27px
+    }
+}
+@media (max-width: 576px) {
+    .about__img-grid {
+        gap: 15px 17px
+    }
+}
+.about__img-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.description {
+    font-family: OpenSans, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark-color);
+}
+
+.description--strong {
+    font-weight: 700;
+}
+
+.about__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about__list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about__list-img {
+    width: 24px;
+}
+
+.about__button {
+    width: min-content;
+}
