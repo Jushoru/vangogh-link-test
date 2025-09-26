@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b5dba45-a7b9-4a75-8b58-ae8c0282e67e" name="Changes" comment="" />
+    <list default="true" id="9b5dba45-a7b9-4a75-8b58-ae8c0282e67e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/about1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/about1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/about2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/about2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/about3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/about3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/equipment/belt12.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/equipment/belt8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/equipment/cable4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/equipment/cable5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/equipment/cable6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,37 +33,48 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="33CSKzfYoWzv8wPg9pYXg304f49" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/projects/ITERVIEW/vangogh-link-test/fonts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/projects/ITERVIEW/vangogh-link-test/images/equipment",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\ITERVIEW\vangogh-link-test\images\equipment" />
+      <recent name="D:\projects\ITERVIEW\vangogh-link-test\images\about" />
       <recent name="D:\projects\ITERVIEW\vangogh-link-test\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\ITERVIEW\vangogh-link-test\images\equipment" />
       <recent name="D:\projects\ITERVIEW\vangogh-link-test\images\about" />
       <recent name="D:\projects\ITERVIEW\vangogh-link-test\images" />
       <recent name="D:\projects\ITERVIEW\vangogh-link-test\images\icons" />
-      <recent name="D:\projects\ITERVIEW\vangogh-link-test\images\equipment" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -66,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1758819501128</updated>
       <workItem from="1758819502252" duration="24220000" />
-      <workItem from="1758866338368" duration="17587000" />
+      <workItem from="1758866338368" duration="24221000" />
     </task>
     <servers />
   </component>

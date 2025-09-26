@@ -325,18 +325,38 @@ header {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        width: calc(100% - 280px);
-        top: 80px;
+        top: 79px;
         background-color: white;
         transition: opacity 0.3s ease;
         z-index: 999;
+
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 192px);
+        max-width: 768px;
     }
+
     .header__menu--active {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
     }
 }
+
+@media (max-width: 768px) {
+    .header__menu {
+        width: calc(100% - 80px);
+        max-width: 576px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header__menu {
+        width: calc(100% - 30px);
+        max-width: 360px;
+    }
+}
+
 
 .header__menu-list {
     display: flex;
